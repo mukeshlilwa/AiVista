@@ -83,27 +83,15 @@ const Slider = () => {
   };
 
   return (
-    <div className="w-full bg-[#000000] text-white py-16 relative overflow-hidden">
-      {/* Grid background */}
-      <div
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(#1a324b 1px, transparent 1px), linear-gradient(90deg, #1a324b 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
-      ></div>
-
+    <div className="w-full bg-black text-white py-16 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 relative z-10">
-        {/* Header with images */}
+        {/* Header */}
         <div className="text-center mb-16 relative flex items-center justify-center">
-          {/* Left image */}
           <img
             src="/images/right.svg"
             alt="Left Decoration"
-            className="absolute left-[-120px] top-30 transform -translate-y-1/2 w-60 h-60 "
+            className="absolute left-[-120px] top-30 transform -translate-y-1/2 w-60 h-60"
           />
-          {/* Right image */}
           <img
             src="/images/left.svg"
             alt="Right Decoration"
@@ -122,20 +110,29 @@ const Slider = () => {
         </div>
 
         {/* Slides */}
-        <div className="relative h-[520px] flex items-center">
+        <div className="relative h-[650px] flex items-center px-6">
+          {/* Grid background */}
+          <div
+            className="absolute inset-0 rounded-3xl pointer-events-none z-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(#2b557f 1px, transparent 1px), linear-gradient(90deg, #2b557f 1px, transparent 1px)",
+              backgroundSize: "60px 60px",
+              opacity: 0.2,
+              padding: "20px",
+            }}
+          />
+
           {slides.map((slide, index) => {
             let position = index - activeIndex;
             if (position < -1) position += slides.length;
             if (position > 1) position -= slides.length;
 
             const isCenter = position === 0;
-            const transform = isCenter
-              ? "translateX(0) scale(1)"
-              : `translateX(${position * 60}%) scale(0.85)`;
-
-            const opacity = isCenter ? 1 : 0.7;
+            const scale = isCenter ? 1 : 0.9;
+            const transform = `translateX(${position * 60}%) scale(${scale})`;
             const zIndex = isCenter ? 30 : 10;
-            const height = isCenter ? "500px" : "490px";
+            const height = "500px";
 
             return (
               <div
@@ -144,25 +141,22 @@ const Slider = () => {
                 style={{
                   transform: `translateX(-50%) ${transform}`,
                   zIndex,
-                  opacity,
                   height,
-                  marginTop: isCenter ? "0" : "0px",
                 }}
               >
                 <div className="relative h-full w-full">
-                  {/* Background glow behind center card */}
-                  {isCenter && (
-                    <div className="absolute inset-0 bg-[#7AE8FF] rounded-3xl blur-2xl opacity-25 z-0" />
-                  )}
+                  {/* All cards have same glowing blur */}
+                  <div className="absolute inset-0 bg-[#7AE8FF] rounded-3xl blur-2xl opacity-25 z-0" />
 
+                  {/* Card */}
                   <div
-                    className="relative rounded-3xl px-6 py-1 h-full flex flex-col backdrop-blur-lg z-10"
+                    className="relative rounded-3xl px-6 py-1 h-full flex flex-col z-10 backdrop-blur-lg shadow-xl"
                     style={{
                       backgroundColor: "rgba(255, 255, 255, 0.08)",
-                      overflow: isCenter ? "hidden" : "auto",
+                      border: "1px solid rgba(255, 255, 255, 0.15)",
                     }}
                   >
-                    {/* Decorative Dots */}
+                    {/* Decorative dots only on center */}
                     {isCenter && (
                       <>
                         <div className="absolute top-3 left-3 w-2 h-2 rounded-full bg-white" />
@@ -172,52 +166,34 @@ const Slider = () => {
                       </>
                     )}
 
-                    {/* Icon */}
+                    {/* Icon only center */}
                     {isCenter && (
                       <div className="absolute mt-4 left-1/2 transform -translate-x-1/2">
                         <LayoutGrid size={40} className="text-white mb-3" />
                       </div>
                     )}
 
-                    {/* Content */}
+                    {/* Text */}
                     <div className="text-center mb-6 mt-15">
-                      <h3
-                        className={`font-semibold ${
-                          isCenter ? "text-xl" : "text-lg"
-                        }`}
-                      >
-                        {slide.title}
-                      </h3>
-                      <p
-                        className={`text-gray-300 ${
-                          isCenter ? "text-sm" : "text-xs"
-                        }`}
-                      >
-                        {slide.subtitle}
-                      </p>
+                      <h3 className="font-semibold text-xl">{slide.title}</h3>
+                      <p className="text-gray-300 text-sm">{slide.subtitle}</p>
                     </div>
 
-                    <div className="flex-1 space-y-3 pr-1">
+                    {/* Features */}
+                    <div className="flex-1 space-y-3 pr-1 overflow-y-auto">
                       {slide.features.map((feature, idx) => (
                         <div key={idx}>
-                          <h4
-                            className={`font-bold ${
-                              isCenter ? "text-sm" : "text-xs"
-                            } text-blue-300`}
-                          >
+                          <h4 className="font-bold text-sm text-blue-300">
                             • {feature.title}
                           </h4>
-                          <p
-                            className={`mt-1 ${
-                              isCenter ? "text-xs" : "text-xxs"
-                            } text-gray-300`}
-                          >
+                          <p className="mt-1 text-xs text-gray-300">
                             {feature.description}
                           </p>
                         </div>
                       ))}
                     </div>
 
+                    {/* Button */}
                     <div className="text-right mr-2">
                       <button className="underline text-white hover:text-blue-200 text-sm transition">
                         Explore More
