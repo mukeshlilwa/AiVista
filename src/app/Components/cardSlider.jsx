@@ -110,15 +110,15 @@ const Slider = () => {
         </div>
 
         {/* Slides */}
-        <div className="relative h-[520px] flex items-center px-3">
+        <div className="relative h-[520px] flex items-center">
           {/* Grid background */}
           <div
-            className="absolute inset-0 pointer-events-none z-0 mb-[-45px]"
+            className="absolute inset-0 pointer-events-none z-0 mb-[-45px] mx-[38px]"
             style={{
               backgroundImage:
                 "linear-gradient(#2b557f 1px, transparent 1px), linear-gradient(90deg, #2b557f 1px, transparent 1px)",
               backgroundSize: "80px 80px",
-              opacity: 0.2,
+              opacity: 0.3,
               
             }}
           />
