@@ -110,16 +110,16 @@ const Slider = () => {
         </div>
 
         {/* Slides */}
-        <div className="relative h-[650px] flex items-center px-6">
+        <div className="relative h-[520px] flex items-center px-3">
           {/* Grid background */}
           <div
-            className="absolute inset-0 rounded-3xl pointer-events-none z-0"
+            className="absolute inset-0 pointer-events-none z-0 mb-[-45px]"
             style={{
               backgroundImage:
                 "linear-gradient(#2b557f 1px, transparent 1px), linear-gradient(90deg, #2b557f 1px, transparent 1px)",
-              backgroundSize: "60px 60px",
+              backgroundSize: "80px 80px",
               opacity: 0.2,
-              padding: "20px",
+              
             }}
           />
 
@@ -129,10 +129,10 @@ const Slider = () => {
             if (position > 1) position -= slides.length;
 
             const isCenter = position === 0;
-            const scale = isCenter ? 1 : 0.9;
+            const scale = isCenter ? 1 : 0.8;
             const transform = `translateX(${position * 60}%) scale(${scale})`;
             const zIndex = isCenter ? 30 : 10;
-            const height = "500px";
+            const height = "450px";
 
             return (
               <div
@@ -207,7 +207,7 @@ const Slider = () => {
         </div>
 
         {/* Controls */}
-        <div className="flex justify-center items-center mt-10 space-x-8">
+        <div className="flex justify-center items-center mt-[-15px] space-x-4">
           <button
             className="bg-gray-700/60 rounded-full p-3 hover:bg-gray-600 transition"
             onClick={handlePrevious}
