@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
     <HeroSection/>
-    <Partners/>
+    
     <ServicesSection/>
     <Slider/>
     <QuoteForm/>
