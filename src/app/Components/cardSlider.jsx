@@ -12,18 +12,15 @@ const Slider = () => {
       features: [
         {
           title: "USER-FRIENDLY STOREFRONT",
-          description:
-            "Design intuitive, visually appealing storefronts showcasing products effectively.",
+          description: "Design intuitive, visually appealing storefronts showcasing products effectively.",
         },
         {
           title: "SECURE PAYMENT INTEGRATION",
-          description:
-            "Enable secure transactions with credit/debit cards, digital wallets, and BNPL solutions.",
+          description: "Enable secure transactions with credit/debit cards, digital wallets, and BNPL solutions.",
         },
         {
           title: "PRODUCT MANAGEMENT SYSTEM",
-          description:
-            "Manage inventory, pricing, and promotions with real-time updates.",
+          description: "Manage inventory, pricing, and promotions with real-time updates.",
         },
       ],
     },
@@ -33,13 +30,11 @@ const Slider = () => {
       features: [
         {
           title: "CUSTOMER PORTALS",
-          description:
-            "Provide personalized access for customers to manage their accounts.",
+          description: "Provide personalized access for customers to manage their accounts.",
         },
         {
           title: "EMPLOYEE PORTALS",
-          description:
-            "Enable your team to collaborate efficiently with task management tools.",
+          description: "Enable your team to collaborate efficiently with task management tools.",
         },
         {
           title: "E-COMMERCE PORTALS",
@@ -57,18 +52,15 @@ const Slider = () => {
       features: [
         {
           title: "RESPONSIVE STOREFRONT",
-          description:
-            "Mobile-friendly shopping experience prioritizing speed and efficiency.",
+          description: "Mobile-friendly shopping experience prioritizing speed and efficiency.",
         },
         {
           title: "MOBILE PAYMENT INTEGRATION",
-          description:
-            "Secure payment options including Apple Pay and Google Pay.",
+          description: "Secure payment options including Apple Pay and Google Pay.",
         },
         {
           title: "INVENTORY MANAGEMENT",
-          description:
-            "Track and manage product details effortlessly from mobile.",
+          description: "Track and manage product details effortlessly from mobile.",
         },
       ],
     },
@@ -84,42 +76,39 @@ const Slider = () => {
 
   return (
     <div className="w-full bg-black text-white py-16 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16 relative flex items-center justify-center">
           <img
             src="/images/right.svg"
             alt="Left Decoration"
-            className="absolute left-[-120px] top-30 transform -translate-y-1/2 w-60 h-60"
+            className="hidden md:block absolute left-[-120px] top-1/2 transform -translate-y-1/2 w-40 h-40"
           />
           <img
             src="/images/left.svg"
             alt="Right Decoration"
-            className="absolute right-[-120px] top-15 transform -translate-y-1/2 w-60 h-60"
+            className="hidden md:block absolute right-[-120px] top-1/2 transform -translate-y-1/2 w-40 h-40"
           />
           <div className="relative z-10">
-            <h2 className="text-4xl font-bold mb-6">WHAT WE DO BEST</h2>
-            <p className="text-gray-300 max-w-3xl mx-auto">
-              We craft end‑to‑end tech solutions—spanning strategy, design, and
-              development—that turn bold ideas into resilient, user‑focused
-              products. Partner with us to accelerate innovation, optimize
-              operations, and create seamless digital experiences that set you
-              apart.
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">WHAT WE DO BEST</h2>
+            <p className="text-gray-300 max-w-3xl mx-auto text-sm sm:text-base">
+              We craft end‑to‑end tech solutions—spanning strategy, design, and development—that turn bold ideas into resilient, user‑focused products.
             </p>
           </div>
         </div>
 
         {/* Slides */}
-        <div className="relative h-[520px] flex items-center">
+        <div className="relative h-[520px] flex items-center justify-center sm:px-2">
           {/* Grid background */}
           <div
-            className="absolute inset-0 pointer-events-none z-0 mb-[-45px] mx-[38px]"
+            className="absolute inset-0 z-0 pointer-events-none"
             style={{
               backgroundImage:
                 "linear-gradient(#2b557f 1px, transparent 1px), linear-gradient(90deg, #2b557f 1px, transparent 1px)",
               backgroundSize: "80px 80px",
-              opacity: 0.3,
-              
+              opacity: 0.25,
+              marginBottom: "-40px",
+              marginInline: "1rem",
             }}
           />
 
@@ -129,34 +118,31 @@ const Slider = () => {
             if (position > 1) position -= slides.length;
 
             const isCenter = position === 0;
-            const scale = isCenter ? 1 : 0.8;
-            const transform = `translateX(${position * 60}%) scale(${scale})`;
+            const scale = isCenter ? 1 : 0.85;
+            const translateX = position * 80;
             const zIndex = isCenter ? 30 : 10;
-            const height = "450px";
 
             return (
               <div
                 key={index}
-                className="absolute left-1/2 w-full max-w-md transition-all duration-500 ease-in-out"
+                className="absolute left-1/2 w-full max-w-sm transition-all duration-500 ease-in-out"
                 style={{
-                  transform: `translateX(-50%) ${transform}`,
+                  transform: `translateX(-50%) translateX(${translateX}%) scale(${scale})`,
                   zIndex,
-                  height,
+                  height: "450px",
                 }}
               >
                 <div className="relative h-full w-full">
-                  {/* All cards have same glowing blur */}
                   <div className="absolute inset-0 bg-[#7AE8FF] rounded-3xl blur-2xl opacity-25 z-0" />
 
-                  {/* Card */}
                   <div
-                    className="relative rounded-3xl px-6 py-1 h-full flex flex-col z-10 backdrop-blur-lg shadow-xl"
+                    className="relative rounded-3xl px-6 py-4 h-full flex flex-col z-10 backdrop-blur-lg shadow-xl"
                     style={{
                       backgroundColor: "rgba(255, 255, 255, 0.08)",
                       border: "1px solid rgba(255, 255, 255, 0.15)",
                     }}
                   >
-                    {/* Decorative dots only on center */}
+                    {/* Decorative dots on center */}
                     {isCenter && (
                       <>
                         <div className="absolute top-3 left-3 w-2 h-2 rounded-full bg-white" />
@@ -166,21 +152,21 @@ const Slider = () => {
                       </>
                     )}
 
-                    {/* Icon only center */}
+                    {/* Center Icon */}
                     {isCenter && (
                       <div className="absolute mt-4 left-1/2 transform -translate-x-1/2">
-                        <LayoutGrid size={40} className="text-white mb-3" />
+                        <LayoutGrid size={36} className="text-white mb-3" />
                       </div>
                     )}
 
                     {/* Text */}
-                    <div className="text-center mb-6 mt-15">
+                    <div className="text-center mb-6 mt-14">
                       <h3 className="font-semibold text-xl">{slide.title}</h3>
                       <p className="text-gray-300 text-sm">{slide.subtitle}</p>
                     </div>
 
                     {/* Features */}
-                    <div className="flex-1 space-y-3 pr-1 overflow-y-auto">
+                    <div className="flex-1 space-y-3 overflow-y-auto pr-1">
                       {slide.features.map((feature, idx) => (
                         <div key={idx}>
                           <h4 className="font-bold text-sm text-blue-300">
@@ -194,7 +180,7 @@ const Slider = () => {
                     </div>
 
                     {/* Button */}
-                    <div className="text-right mr-2">
+                    <div className="text-right mt-2">
                       <button className="underline text-white hover:text-blue-200 text-sm transition">
                         Explore More
                       </button>
@@ -207,7 +193,7 @@ const Slider = () => {
         </div>
 
         {/* Controls */}
-        <div className="flex justify-center items-center mt-[-15px] space-x-4">
+        <div className="flex justify-center items-center mt-6 sm:mt-8 space-x-4 relative z-10">
           <button
             className="bg-gray-700/60 rounded-full p-3 hover:bg-gray-600 transition"
             onClick={handlePrevious}
