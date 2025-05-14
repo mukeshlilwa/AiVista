@@ -4,7 +4,7 @@ import LandingBackground from "./Background/landingBackground";
 
 const AboutUs = () => {
   return (
-    <section className="w-full bg-black text-white py-20 relative overflow-hidden">
+    <section className="w-full bg-black text-white py-5 relative overflow-hidden">
       {/* Grid Background */}
       <LandingBackground />
 
@@ -33,7 +33,7 @@ const AboutUs = () => {
               />
             </div>
 
-            {/* Bottom right image - 130px */}
+            {/* Bottom right image - 140px */}
             <div className="relative rounded-2xl overflow-hidden h-[140px]">
               <Image
                 src="/images/about3.svg"
@@ -46,10 +46,10 @@ const AboutUs = () => {
         </div>
 
         {/* Right Text Content */}
-        <div className="w-full md:w-1/2 space-y-6">
+        <div className="w-full md:w-1/2 space-y-6 text-center md:text-left order-first md:order-none">
           <h2 className="text-3xl sm:text-4xl font-bold">ABOUT US</h2>
           <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-            At [AI Vista Solutions], we are more than just a development
+            At <span className="text-[#00FFFF]">[AI Vista Solutions]</span>, we are more than just a development
             company—we are innovators, problem solvers, and technology
             enthusiasts committed to building digital solutions that drive
             success. With a passion for cutting-edge development and a deep
@@ -64,7 +64,7 @@ const AboutUs = () => {
             unique needs of our clients.
           </p>
           <button className="mt-4 px-6 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition">
-            Learn More
+            Read More
           </button>
         </div>
       </div>
