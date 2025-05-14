@@ -6,6 +6,7 @@ import ServicesSection from "./Components/ServiceCards";
 import HeroSection from "./Components/HeroSection";
 import ClientLogos from "./Components/logos";
 import AboutUs from "./Components/aboutUs";
+import SuccessStories from "./Components/successStories";
 
 
 export default function Home() {
@@ -14,9 +15,12 @@ export default function Home() {
     <HeroSection/>
     <ClientLogos/>
     <ServicesSection/>
+
     <AboutUs/>
+    <SuccessStories/>
     <Slider/>
     <QuoteForm/>
+   
     <Footer/>
 
     </>
