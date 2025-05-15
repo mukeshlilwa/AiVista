@@ -22,9 +22,9 @@ const scrollingIcons = [...iconData, ...iconData]; // duplicate for seamless loo
 
 export default function ClientLogos() {
   return (
-    <section className="bg-black py-4 md:py-8 lg:py-12">
+    <section className="bg-black ">
       <div className="overflow-hidden">
-        <div className="relative w-[90%] max-w-[1600px] mx-auto overflow-hidden">
+        <div className="relative w-full max-w-[1600px] mx-auto overflow-hidden">
           <div className="flex min-w-max animate-scroll-left space-x-6 sm:space-x-10 md:space-x-14">
             {scrollingIcons.map((item, index) => {
               const IconComponent = item.icon;
