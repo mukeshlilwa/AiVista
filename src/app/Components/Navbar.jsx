@@ -59,8 +59,8 @@ const Navbar = () => {
     },
     closed: (custom) => ({
       opacity: 1, // All 9 dots visible
-      x: (custom % 3) * 16 - 16, // Grid position X
-      y: Math.floor(custom / 3) * 16 - 16, // Grid position Y
+      x: (custom % 3) * 10 - 10, // Grid position X
+      y: Math.floor(custom / 3) * 10 - 10, // Grid position Y
       scale: 1,
       transition: {
         duration: 0.5,

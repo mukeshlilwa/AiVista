@@ -130,15 +130,12 @@ const Slider = () => {
         </div>
 
         {/* Slides */}
-        <div className="relative h-[540px] sm:h-[600px] flex items-center justify-center sm:px-2">
-          <div
-            className="absolute inset-0 z-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                "linear-gradient(#2b557f 1px, transparent 1px), linear-gradient(90deg, #2b557f 1px, transparent 1px)",
-              backgroundSize: "80px 80px",
-              opacity: 0.2,
-            }}
+        <div className="relative h-[500px] sm:h-[650px] flex items-center justify-center sm:px-2">
+          {/* Background image */}
+          <img
+            src="/images/cardsBg.svg"
+            alt="Background pattern"
+            className="absolute inset-0 w-full h-full object-contain opacity-100 pointer-events-none z-0"
           />
 
           {slides.map((slide, index) => {
@@ -153,7 +150,9 @@ const Slider = () => {
 
             const scale = offset === 0 ? 1 : 0.85;
             const zIndex = offset === 0 ? 30 : 20 - Math.abs(offset) * 10;
-            const translateX = offset * 80;
+            const translateX = offset * 67;
+            const bgOpacity = offset === 0 ? 0.08 : 0.04; // Half opacity for side cards
+            const borderOpacity = offset === 0 ? 0.15 : 0.075; // Half opacity for side cards
 
             return (
               <div
@@ -170,8 +169,8 @@ const Slider = () => {
                   <div
                     className="relative rounded-3xl px-6 py-4 h-full flex flex-col z-10 backdrop-blur-lg shadow-xl"
                     style={{
-                      backgroundColor: "rgba(255, 255, 255, 0.08)",
-                      border: "1px solid rgba(255, 255, 255, 0.15)",
+                      backgroundColor: `rgba(255, 255, 255, ${bgOpacity})`,
+                      border: `1px solid rgba(255, 255, 255, ${borderOpacity})`,
                     }}
                   >
                     {/* Decorative dots - always visible */}
@@ -214,7 +213,7 @@ const Slider = () => {
         </div>
 
         {/* Controls */}
-        <div className="flex justify-center items-center mt-6 sm:mt-8 space-x-4 relative z-10">
+        <div className="flex justify-center items-center mt-[-60px] space-x-3 relative z-10">
           <button
             className="bg-gray-700/60 rounded-full p-3 hover:bg-gray-600 transition"
             onClick={handlePrevious}
