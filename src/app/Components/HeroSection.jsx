@@ -57,7 +57,7 @@ export default function HeroSection() {
         </p>
 
         {/* Custom Get Started Button */}
-        <div className="mt-16 flex justify-center">
+        <div className="mt-12 flex justify-center">
   <button
     className="relative rounded-full flex items-center w-full max-w-xs text-black mx-auto"
     onMouseMove={handleMouseMove}
