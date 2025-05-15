@@ -1,40 +1,49 @@
-"use client";
-import { useEffect, useRef } from "react";
+'use client';
 
-const ClientLogos = () => {
-  const clientImages = [
-    "erpsol.svg",
-    "mobiledev1.svg",
-    "uiiux.svg",
-    "erpsol.svg",
-    "mobiledev1.svg",
-    "uiiux.svg",
-    "erpsol.svg",
-    "mobiledev1.svg",
-    "uiiux.svg",
-  ];
+import {
+  Code,
+  Smartphone,
+  LayoutDashboard,
+  Brain,
+  Users,
+  Server,
+} from 'lucide-react';
 
-  const secondRow = [...clientImages.slice(1, 9)];
+const iconData = [
+  { icon: Code, label: 'Web Development' },
+  { icon: Smartphone, label: 'App Development' },
+  { icon: LayoutDashboard, label: 'UI/UX Design' },
+  { icon: Brain, label: 'AI Solutions' },
+  { icon: Users, label: 'CRM Systems' },
+  { icon: Server, label: 'ERP Solutions' },
+];
 
+const scrollingIcons = [...iconData, ...iconData]; // duplicate for seamless loop
+
+export default function ClientLogos() {
   return (
     <section className="bg-black py-4 md:py-8 lg:py-12">
-      <div className="overflow-hidden space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-8">
-        {/* Scroll Row */}
-        <div className="relative w-[90%] max-w-[1200px] mx-auto overflow-hidden">
-          <div className="flex min-w-max animate-scroll-left space-x-6 sm:space-x-8">
-            {[...secondRow, ...secondRow].map((image, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center w-40 h-20 sm:w-44 sm:h-24 md:w-48 md:h-28"
-              >
-                <img
-                  src={`/logos/${image}`}
-                  alt={`Client logo ${index + 1}`}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-            ))}
+      <div className="overflow-hidden">
+        <div className="relative w-[90%] max-w-[1600px] mx-auto overflow-hidden">
+          <div className="flex min-w-max animate-scroll-left space-x-6 sm:space-x-10 md:space-x-14">
+            {scrollingIcons.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 whitespace-nowrap"
+                >
+                  <IconComponent
+                    className="text-cyan-400 shrink-0"
+                    size={36}
+                    strokeWidth={1.75}
+                  />
+                  <span className="text-white text-sm sm:text-base md:text-xl font-semibold">
+                    {item.label}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -61,6 +70,4 @@ const ClientLogos = () => {
       `}</style>
     </section>
   );
-};
-
-export default ClientLogos;
+}
