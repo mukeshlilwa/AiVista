@@ -2,8 +2,21 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import AnimatedHeading from './heading';
+import { useState, useEffect } from 'react';
+
+// Animated Heading
+const AnimatedHeading = () => (
+  <motion.h2
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, ease: 'easeOut' }}
+    viewport={{ once: true, amount: 0.8 }}
+    className="text-white text-6xl md:text-9xl font-bold text-center mb-16 font-[Questrial]"
+    
+  >
+    Services
+  </motion.h2>
+);
 
 const services = [
   {
@@ -50,6 +63,16 @@ const iconColors = [
 export default function ServicesSection() {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [gradientOpacity, setGradientOpacity] = useState({ left: 0, right: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const visibleServices = isMobile ? services.slice(0, 4) : services;
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -72,7 +95,7 @@ export default function ServicesSection() {
 
   return (
     <section className="relative w-full min-h-screen bg-black text-white overflow-hidden px-4 md:px-12 py-20">
-      {/* Background Circle Images */}
+      {/* Background */}
       <Image
         src="/images/Ellipse 23.png"
         alt="Circle Decor"
@@ -80,14 +103,13 @@ export default function ServicesSection() {
         height={150}
         className="absolute bottom-0 right-0 opacity-20"
       />
-    
 
-      {/* Sliding Heading */}
-   <AnimatedHeading/>
+      {/* Heading */}
+      <AnimatedHeading />
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 justify-center">
-        {services.map((service, index) => (
+        {visibleServices.map((service, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}
@@ -95,7 +117,6 @@ export default function ServicesSection() {
             transition={{ delay: index * 0.1, duration: 0.6 }}
             className="relative bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl px-6 pb-6 pt-16 shadow-xl hover:shadow-[0_0_30px_#00A8A8] transition-all group"
           >
-            {/* Icon Container */}
             <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
               <div
                 className={`w-16 h-16 flex items-center justify-center rounded-full shadow-lg relative ${iconColors[index]}`}

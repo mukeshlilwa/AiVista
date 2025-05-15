@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, LayoutGrid } from "lucide-react";
 
 const Slider = () => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const slides = [
     {
@@ -37,10 +37,6 @@ const Slider = () => {
           description: "Enable your team to collaborate efficiently with task management tools.",
         },
         {
-          title: "E-COMMERCE PORTALS",
-          description: "Integrate shopping features and inventory management.",
-        },
-        {
           title: "REAL-TIME ANALYTICS",
           description: "Monitor engagement and sales with live dashboards.",
         },
@@ -61,6 +57,42 @@ const Slider = () => {
         {
           title: "INVENTORY MANAGEMENT",
           description: "Track and manage product details effortlessly from mobile.",
+        },
+      ],
+    },
+    {
+      title: "UI/UX DESIGN",
+      subtitle: "Crafting Stunning Interfaces",
+      features: [
+        {
+          title: "WIREFRAMING",
+          description: "Build structural blueprints of your app with ease.",
+        },
+        {
+          title: "PROTOTYPING",
+          description: "Test design interactions before final development.",
+        },
+        {
+          title: "DESIGN SYSTEMS",
+          description: "Maintain visual consistency using reusable components.",
+        },
+      ],
+    },
+    {
+      title: "AI-POWERED SOLUTIONS",
+      subtitle: "Boost Efficiency With AI Tools",
+      features: [
+        {
+          title: "CHATBOTS",
+          description: "Automate customer interactions with intelligent bots.",
+        },
+        {
+          title: "RECOMMENDER SYSTEMS",
+          description: "Personalize user experience with product suggestions.",
+        },
+        {
+          title: "IMAGE RECOGNITION",
+          description: "Leverage vision AI for automation and analysis.",
         },
       ],
     },
@@ -98,29 +130,30 @@ const Slider = () => {
         </div>
 
         {/* Slides */}
-        <div className="relative h-[520px] flex items-center justify-center sm:px-2">
-          {/* Grid background */}
+        <div className="relative h-[540px] sm:h-[600px] flex items-center justify-center sm:px-2">
           <div
             className="absolute inset-0 z-0 pointer-events-none"
             style={{
               backgroundImage:
                 "linear-gradient(#2b557f 1px, transparent 1px), linear-gradient(90deg, #2b557f 1px, transparent 1px)",
               backgroundSize: "80px 80px",
-              opacity: 0.25,
-              marginBottom: "-40px",
-              marginInline: "1rem",
+              opacity: 0.2,
             }}
           />
 
           {slides.map((slide, index) => {
-            let position = index - activeIndex;
-            if (position < -1) position += slides.length;
-            if (position > 1) position -= slides.length;
+            let offset = index - activeIndex;
+            // Adjust offset to only show 3 slides at a time
+            if (offset < -1) offset += slides.length;
+            if (offset > 1) offset -= slides.length;
 
-            const isCenter = position === 0;
-            const scale = isCenter ? 1 : 0.85;
-            const translateX = position * 80;
-            const zIndex = isCenter ? 30 : 10;
+            // Only show the active slide and the immediate left/right slides
+            const visible = Math.abs(offset) <= 1;
+            if (!visible) return null;
+
+            const scale = offset === 0 ? 1 : 0.85;
+            const zIndex = offset === 0 ? 30 : 20 - Math.abs(offset) * 10;
+            const translateX = offset * 80;
 
             return (
               <div
@@ -129,12 +162,11 @@ const Slider = () => {
                 style={{
                   transform: `translateX(-50%) translateX(${translateX}%) scale(${scale})`,
                   zIndex,
-                  height: "450px",
+                  height: "480px",
                 }}
               >
                 <div className="relative h-full w-full">
                   <div className="absolute inset-0 bg-[#7AE8FF] rounded-3xl blur-2xl opacity-25 z-0" />
-
                   <div
                     className="relative rounded-3xl px-6 py-4 h-full flex flex-col z-10 backdrop-blur-lg shadow-xl"
                     style={{
@@ -142,44 +174,33 @@ const Slider = () => {
                       border: "1px solid rgba(255, 255, 255, 0.15)",
                     }}
                   >
-                    {/* Decorative dots on center */}
-                    {isCenter && (
-                      <>
-                        <div className="absolute top-3 left-3 w-2 h-2 rounded-full bg-white" />
-                        <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-white" />
-                        <div className="absolute bottom-3 left-3 w-2 h-2 rounded-full bg-white" />
-                        <div className="absolute bottom-3 right-3 w-2 h-2 rounded-full bg-white" />
-                      </>
-                    )}
+                    {/* Decorative dots - always visible */}
+                    <>
+                      <div className="absolute top-3 left-3 w-2 h-2 rounded-full bg-white" />
+                      <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-white" />
+                      <div className="absolute bottom-3 left-3 w-2 h-2 rounded-full bg-white" />
+                      <div className="absolute bottom-3 right-3 w-2 h-2 rounded-full bg-white" />
+                    </>
 
-                    {/* Center Icon */}
-                    {isCenter && (
-                      <div className="absolute mt-4 left-1/2 transform -translate-x-1/2">
-                        <LayoutGrid size={36} className="text-white mb-3" />
-                      </div>
-                    )}
+                    {/* Icon Center - always visible */}
+                    <div className="absolute mt-4 left-1/2 transform -translate-x-1/2">
+                      <LayoutGrid size={36} className="text-white mb-3" />
+                    </div>
 
-                    {/* Text */}
                     <div className="text-center mb-6 mt-14">
                       <h3 className="font-semibold text-xl">{slide.title}</h3>
                       <p className="text-gray-300 text-sm">{slide.subtitle}</p>
                     </div>
 
-                    {/* Features */}
                     <div className="flex-1 space-y-3 overflow-y-auto pr-1">
                       {slide.features.map((feature, idx) => (
                         <div key={idx}>
-                          <h4 className="font-bold text-sm text-blue-300">
-                            • {feature.title}
-                          </h4>
-                          <p className="mt-1 text-xs text-gray-300">
-                            {feature.description}
-                          </p>
+                          <h4 className="font-bold text-sm text-blue-300">• {feature.title}</h4>
+                          <p className="mt-1 text-xs text-gray-300">{feature.description}</p>
                         </div>
                       ))}
                     </div>
 
-                    {/* Button */}
                     <div className="text-right mt-2">
                       <button className="underline text-white hover:text-blue-200 text-sm transition">
                         Explore More
