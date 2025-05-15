@@ -257,7 +257,7 @@ const Navbar = () => {
                 <Image
                   src="/images/logoVista.svg"
                   alt="Your Brand Logo"
-                  width={100}
+                  width={90}
                   height={10}
                   className="hover:scale-105 transition-transform pt-2"
                 />
@@ -382,8 +382,8 @@ const Navbar = () => {
                 </div>
 
                 {/* Centered menu items that slide from bottom */}
-                <div className="flex-grow flex flex-col justify-center items-center relative z-10">
-                  <ul className="w-full flex flex-col items-center justify-center gap-8 p-8">
+                <div className="flex-grow flex flex-col relative z-10">
+                  <ul className="w-full flex flex-col justify-center gap-8 p-8">
                     {navItems.map((item, i) => (
                       <motion.div
                         key={item.name}
@@ -396,7 +396,7 @@ const Navbar = () => {
                       >
                         <div
                           onClick={() => handleNavigation(item.href, item.name)}
-                          className="text-5xl uppercase font-bold tracking-wider text-white block cursor-pointer"
+                          className="text-3xl uppercase font-bold tracking-wider text-white block cursor-pointer"
                         >
                           {item.name}
                         </div>
@@ -412,7 +412,7 @@ const Navbar = () => {
                     >
                       <div
                         onClick={() => handleNavigation("/contact", "Contact")}
-                        className="text-5xl uppercase font-bold tracking-wider text-white block cursor-pointer"
+                        className="text-3xl uppercase font-bold tracking-wider text-white block cursor-pointer"
                       >
                         Contact
                       </div>

@@ -56,44 +56,43 @@ export default function HeroSection() {
           and with craftsmanship woven into every step.
         </p>
 
-        {/* Custom Button */}
-        <button
-          className="relative rounded-full flex items-center w-full max-w-[160px] sm:max-w-xs text-black mx-auto z-30"
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
-          {/* Left Gradient */}
-          <div
-            style={{ opacity: gradientOpacity.left }}
-            className="absolute -left-2 h-[125%] w-1/2 bg-gradient-to-r from-[#00A8A8] to-transparent blur-sm rounded-full pointer-events-none duration-100"
-          />
-          <div
-            style={{ opacity: gradientOpacity.left }}
-            className="absolute -left-2 h-[125%] w-2/5 bg-gradient-to-r from-[#00A8A8] to-transparent blur-sm rounded-full pointer-events-none duration-100"
-          />
+        {/* Custom Get Started Button */}
+        <div className="mt-16 flex justify-center">
+  <button
+    className="relative rounded-full flex items-center w-full max-w-xs text-black mx-auto"
+    onMouseMove={handleMouseMove}
+    onMouseLeave={handleMouseLeave}
+  >
+    <div
+      style={{ opacity: gradientOpacity.left }}
+      className="absolute -left-2 h-[125%] w-1/2 bg-gradient-to-r from-[#66D9D9] to-transparent blur-sm rounded-full pointer-events-none duration-100"
+    />
+    <div
+      style={{ opacity: gradientOpacity.left }}
+      className="absolute -left-2 h-[125%] w-2/5 bg-gradient-to-r from-[#66D9D9] to-transparent blur-sm rounded-full pointer-events-none duration-100"
+    />
+    <div
+      style={{ opacity: gradientOpacity.right }}
+      className="absolute -right-2 h-[125%] w-1/2 bg-gradient-to-r from-transparent to-[#66D9D9] blur-sm rounded-full pointer-events-none duration-100"
+    />
+    <div
+      style={{ opacity: gradientOpacity.right }}
+      className="absolute -right-2 h-[125%] w-2/5 bg-gradient-to-r from-transparent to-[#66D9D9] blur-sm rounded-full pointer-events-none duration-100"
+    />
 
-          {/* Right Gradient */}
-          <div
-            style={{ opacity: gradientOpacity.right }}
-            className="absolute -right-2 h-[125%] w-1/2 bg-gradient-to-r from-transparent to-[#00A8A8] blur-sm rounded-full pointer-events-none duration-100"
-          />
-          <div
-            style={{ opacity: gradientOpacity.right }}
-            className="absolute -right-2 h-[125%] w-2/5 bg-gradient-to-r from-transparent to-[#00A8A8] blur-sm rounded-full pointer-events-none duration-100"
-          />
+    <div className="relative flex justify-center items-center border border-white/60 bg-[#d1d1d1] w-full py-2 md:py-2.5 rounded-full overflow-hidden">
+      <motion.div
+        animate={{ left: `${cursorPosition.x - 102}px` }}
+        transition={{ duration: 0.15 }}
+        className="absolute flex w-[204px] h-[103px] items-center justify-center pointer-events-none"
+      >
+        <div className="absolute h-full w-full bg-[radial-gradient(43.3%_44.23%_at_50%_49.51%,_#66D9D9_29%,_#66D9D9_48.5%,_#66D9D9_60.71%,rgba(214,211,210,0.00)_100%)] blur-[5px]" />
+      </motion.div>
+      <p className="text-lg font-semibold z-10">Get Started</p>
+    </div>
+  </button>
+</div>
 
-          {/* Button Inner */}
-          <div className="relative flex justify-center items-center border border-white/60 bg-[#d1d1d1] w-full py-1.5 sm:py-2 md:py-2.5 rounded-full overflow-hidden">
-            <motion.div
-              animate={{ left: `${cursorPosition.x - 102}px` }}
-              transition={{ duration: 0.15 }}
-              className="absolute flex w-[204px] h-[103px] items-center justify-center pointer-events-none"
-            >
-              <div className="absolute h-full w-full bg-[radial-gradient(43.3%_44.23%_at_50%_49.51%,_#00A8A8_29%,_#00A8A8_48.5%,_#00A8A8_60.71%,rgba(214,211,210,0.00)_100%)] blur-[5px]" />
-            </motion.div>
-            <p className="text-base sm:text-lg font-semibold z-10">Get Started</p>
-          </div>
-        </button>
       </div>
     </section>
   );
