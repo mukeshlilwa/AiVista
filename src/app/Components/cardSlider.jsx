@@ -108,19 +108,25 @@ const Slider = () => {
 
   return (
     <div className="w-full bg-black text-white py-16 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      {/* Left decoration - positioned at screen edge */}
+      <img
+        src="/images/right.svg"
+        alt="Left Decoration"
+        className="hidden md:block fixed left-0 top-1/2 transform -translate-y-1/2 w-40 h-40"
+        style={{ zIndex: 10 }}
+      />
+      
+      {/* Right decoration - positioned at screen edge */}
+      <img
+        src="/images/left.svg"
+        alt="Right Decoration"
+        className="hidden md:block fixed right-0 top-1/2 transform -translate-y-1/2 w-40 h-40"
+        style={{ zIndex: 10 }}
+      />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-20">
         {/* Header */}
         <div className="text-center mb-16 relative flex items-center justify-center">
-          <img
-            src="/images/right.svg"
-            alt="Left Decoration"
-            className="hidden md:block absolute left-[-120px] top-1/2 transform -translate-y-1/2 w-40 h-40"
-          />
-          <img
-            src="/images/left.svg"
-            alt="Right Decoration"
-            className="hidden md:block absolute right-[-120px] top-1/2 transform -translate-y-1/2 w-40 h-40"
-          />
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">WHAT WE DO BEST</h2>
             <p className="text-gray-300 max-w-3xl mx-auto text-sm sm:text-base">
