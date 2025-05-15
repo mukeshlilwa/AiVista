@@ -258,7 +258,7 @@ const Navbar = () => {
                   src="/images/logoVista.svg"
                   alt="Your Brand Logo"
                   width={100}
-                  height={12}
+                  height={10}
                   className="hover:scale-105 transition-transform"
                 />
               </Link>
@@ -347,10 +347,10 @@ const Navbar = () => {
                 <div className="w-full flex justify-between items-center h-20 border-b border-[#ffffff33] px-6 relative z-10">
                   <Link href="/">
                     <Image
-                      src="/images/logo.svg"
+                      src="/images/logoVista.svg"
                       alt="Your Brand Logo"
                       width={100}
-                      height={15}
+                      height={12}
                       className="hover:scale-105 transition-transform"
                     />
                   </Link>
