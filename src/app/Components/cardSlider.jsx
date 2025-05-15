@@ -108,21 +108,26 @@ const Slider = () => {
 
   return (
     <div className="w-full bg-black text-white py-16 relative overflow-hidden">
-      {/* Left decoration - positioned at screen edge */}
-      <img
-        src="/images/right.svg"
-        alt="Left Decoration"
-        className="hidden md:block fixed left-0 top-1/2 transform -translate-y-1/2 w-40 h-40"
-        style={{ zIndex: 10 }}
-      />
-      
-      {/* Right decoration - positioned at screen edge */}
-      <img
-        src="/images/left.svg"
-        alt="Right Decoration"
-        className="hidden md:block fixed right-0 top-1/2 transform -translate-y-1/2 w-40 h-40"
-        style={{ zIndex: 10 }}
-      />
+      <div className="relative w-full">
+  {/* Left decoration */}
+  <img
+    src="/images/right.svg"
+    alt="Left Decoration"
+    className="absolute left-0 top-1/2  w-40 h-40"
+    style={{ zIndex: 10 }}
+  />
+
+  {/* Right decoration */}
+  <img
+    src="/images/left.svg"
+    alt="Right Decoration"
+    className="absolute right-0 top-1/2  w-40 h-40"
+    style={{ zIndex: 10 }}
+  />
+
+  {/* Your actual component content here */}
+</div>
+
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-20">
         {/* Header */}
