@@ -3,19 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-
-// Animated Heading with Line Behind
-const AnimatedHeading = () => (
-  <motion.h2
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8, ease: 'easeOut' }}
-    viewport={{ once: true, amount: 0.8 }}
-    className="text-white text-6xl md:text-9xl font-bold text-center mb-16 font-[Questrial]"  
-  >
-    Services
-  </motion.h2>
-);
+import HeadingAnimation from './headingAnimation';
 
 
 const services = [
@@ -105,7 +93,7 @@ export default function ServicesSection() {
       />
 
       {/* Heading */}
-      <AnimatedHeading />
+      <div className='pb-10'><HeadingAnimation/></div>
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
