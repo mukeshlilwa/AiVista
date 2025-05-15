@@ -246,7 +246,7 @@ const Navbar = () => {
     <>
       <nav className="bg-gradient-to-r from-black via-black to-[#00A8A8] backdrop-blur-lg border-gray-100 w-full z-50 fixed top-0 left-0 right-0">
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
+          <div className="flex justify-between h-20 items-center ">
             {/* Logo - positioned to the left */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -259,7 +259,7 @@ const Navbar = () => {
                   alt="Your Brand Logo"
                   width={100}
                   height={10}
-                  className="hover:scale-105 transition-transform"
+                  className="hover:scale-105 transition-transform pt-2"
                 />
               </Link>
             </motion.div>
@@ -351,7 +351,7 @@ const Navbar = () => {
                       alt="Your Brand Logo"
                       width={100}
                       height={12}
-                      className="hover:scale-105 transition-transform"
+                      className="hover:scale-105 transition-transform pt-2"
                     />
                   </Link>
 
