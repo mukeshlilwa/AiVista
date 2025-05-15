@@ -1,4 +1,5 @@
 'use client';
+
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -27,14 +28,9 @@ const QuoteForm = () => {
     <div className="w-full overflow-x-hidden bg-black">
       <div className="w-full px-4 sm:px-6 md:px-10 py-16">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center">
-          
-          {/* Image Section - Hidden on Mobile */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block relative w-full h-full overflow-hidden border border-gray-700/50 rounded-l-xl lg:rounded-r-none"
-          >
+
+          {/* Image Section (static) */}
+          <div className="hidden lg:block relative w-full h-full overflow-hidden border border-gray-700/50 rounded-l-xl lg:rounded-r-none">
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
             <Image
               src="/images/Stylish Professional Engrossed in Technology.png"
@@ -51,7 +47,7 @@ const QuoteForm = () => {
                 Leverage our expertise to transform your ideas into exceptional digital solutions
               </p>
             </div>
-          </motion.div>
+          </div>
 
           {/* Form Section */}
           <div className="relative" ref={containerRef}>
@@ -59,15 +55,9 @@ const QuoteForm = () => {
               <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-[#7AE8FF] opacity-20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none" />
 
               <div className="relative z-10 max-w-lg mx-auto">
-                <motion.h2
-                  initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
-                  variants={fieldVariants}
-                  custom={0}
-                  className="text-2xl md:text-3xl font-bold text-white mb-6"
-                >
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
                   Stay Updated
-                </motion.h2>
+                </h2>
 
                 <form className="space-y-4">
                   {[

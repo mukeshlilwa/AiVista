@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -21,10 +22,17 @@ const testimonials = [
 
 export default function TestimonialSection() {
   const [current, setCurrent] = useState(0);
+  const [animateKey, setAnimateKey] = useState(0); // used for framer-motion remount
 
-  const prev = () =>
+  const prev = () => {
     setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
+    setAnimateKey((prev) => prev + 1);
+  };
+
+  const next = () => {
+    setCurrent((prev) => (prev + 1) % testimonials.length);
+    setAnimateKey((prev) => prev + 1);
+  };
 
   const { quote, name, role, image } = testimonials[current];
 
@@ -32,15 +40,26 @@ export default function TestimonialSection() {
     <section className="py-12 px-4 md:px-12 xl:px-40 2xl:px-60 bg-black text-white">
       {/* Heading */}
       <div className="text-center mb-14">
-        
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">WHAT PEOPLE ARE SAYING</h2>
-        <p className="text-sm text-gray-400 mb-1">Hear from our valued users about their experiences and how our solutions have made a difference in their lives.</p>
+        <p className="text-sm text-gray-400 mb-1">
+          Hear from our valued users about their experiences and how our solutions have made a difference in their lives.
+        </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-10 xl:gap-20 items-center">
         {/* Left Column */}
         <div className="max-w-xl">
-          <div className="border-t-4 border-[#00FFFF] w-20 sm:w-32 mb-4" />
+          {/* Animated Cyan Line with Framer Motion */}
+          <div className="relative w-20 sm:w-32 mb-4 h-1 overflow-hidden bg-gray-400">
+            <motion.div
+              key={animateKey}
+              initial={{ width: 0 }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="absolute left-0 top-0 h-full bg-[#00FFFF]"
+            />
+          </div>
+
           <h1 className="text-2xl sm:text-3xl xl:text-4xl font-medium mb-3">
             From Our <br />
             <span className="text-[#00FFFF] font-semibold">Community</span>
