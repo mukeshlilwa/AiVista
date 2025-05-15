@@ -213,7 +213,7 @@ const Slider = () => {
         </div>
 
         {/* Controls */}
-        <div className="flex justify-center items-center mt-[-60px] space-x-3 relative z-10">
+        <div className="flex justify-center items-center md:mt-[-60px] mt-0 space-x-3 relative z-10">
           <button
             className="bg-gray-700/60 rounded-full p-3 hover:bg-gray-600 transition"
             onClick={handlePrevious}
