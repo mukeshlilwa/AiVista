@@ -4,7 +4,7 @@ import LandingBackground from "./Background/landingBackground";
 
 const AboutUs = () => {
   return (
-    <section className="w-full bg-black text-white py-5 relative overflow-hidden">
+    <section className="w-full bg-black text-white py-12 sm:py-20 relative overflow-hidden">
       {/* Grid Background */}
       <LandingBackground />
 

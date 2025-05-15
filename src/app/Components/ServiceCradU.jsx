@@ -82,7 +82,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-black text-white overflow-hidden px-4 md:px-12 py-20">
+    <section className="relative w-full min-h-screen bg-black text-white overflow-hidden px-4 md:px-12 lg:pt-10 lg:py-10 py-0">
       {/* Background Decor */}
       <Image
         src="/images/Ellipse 23.png"
@@ -93,7 +93,7 @@ export default function ServicesSection() {
       />
 
       {/* Heading */}
-      <div className='pb-10'><HeadingAnimation/></div>
+      <div className='py-10'><HeadingAnimation/></div>
 
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
@@ -137,7 +137,7 @@ export default function ServicesSection() {
       </div>
 
       {/* Get Started Button */}
-      <div className="mt-16 flex justify-center">
+      <div className="mt-0 sm:mt-10 flex justify-center sm:py-0 py-0">
   <button
     className="relative rounded-full flex items-center w-full max-w-xs text-black mx-auto"
     onMouseMove={handleMouseMove}
