@@ -137,7 +137,7 @@ export default function ServicesSection() {
       </div>
 
       {/* Get Started Button */}
-      <div className="mt-0 sm:mt-10 flex justify-center sm:py-0 py-5">
+      <div className="mt-0 sm:mt-10 flex justify-center sm:py-0 py-8">
   <button
     className="relative rounded-full flex items-center w-full max-w-xs text-black mx-auto"
     onMouseMove={handleMouseMove}
