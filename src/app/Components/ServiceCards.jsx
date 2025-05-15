@@ -27,27 +27,27 @@ const services = [
   {
     title: 'Web Development Services',
     description: 'Tailored software solutions crafted to fit your unique business needs.',
-    icon: '/icons/web.png',
+    icon: '/images/card2.svg',
   },
   {
     title: 'UI/UX Design Services',
     description: 'Tailored software solutions crafted to fit your unique business needs.',
-    icon: '/icons/uiux.png',
+    icon: '/images/card3.svg',
   },
   {
     title: 'Mobile App Development',
     description: 'Tailored software solutions crafted to fit your unique business needs.',
-    icon: '/icons/mobile.png',
+    icon: '/images/card4.svg',
   },
   {
     title: 'Data Science & Analytics',
     description: 'Tailored software solutions crafted to fit your unique business needs.',
-    icon: '/icons/data.png',
+    icon: '/images/card5.svg',
   },
   {
     title: 'Cloud Computing Services',
     description: 'Tailored software solutions crafted to fit your unique business needs.',
-    icon: '/icons/cloud.png',
+    icon: '/images/card6.png'
   },
 ];
 
