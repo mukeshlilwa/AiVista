@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import SloganSlider from './sloganSlider';
@@ -30,7 +29,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative w-full h-auto min-h-[400px] sm:min-h-[450px] sm:h-[80vh] bg-black overflow-hidden flex items-start sm:items-center justify-center px-4 md:px-8 lg:px-20 xl:px-32 2xl:px-48 text-white">
-      {/* Background GIF overlay */}
+      {/* Background GIF */}
       <div className="absolute inset-0 -top-16 md:-top-8 z-0">
         <Image
           src="/logos/voice wave (2).gif"
@@ -43,25 +42,27 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto pt-8 pb-4 sm:pt-0 sm:pb-6 md:py-10">
-        <SloganSlider/>
-        <h1 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold leading-tight mb-2 sm:mb-4 font-[Questrial] relative z-30">
+      {/* Foreground Content */}
+      <div className="relative z-10 text-center max-w-4xl xl:max-w-5xl 2xl:max-w-6xl mx-auto pt-10  sm:pt-0  md:py-10 space-y-4 max-sm:space-y-6">
+        <SloganSlider />
+
+        <h1 className="text-3xl max-sm:text-[1.9rem] md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold leading-tight mb-4 sm:mb-4 font-[Questrial] relative z-30">
           Unlock the future With <span className="text-cyan-400">AI</span>
         </h1>
-        <p className="text-sm md:text-lg text-gray-300 mb-4 sm:mb-8 relative z-30">
+
+        <p className="text-sm max-sm:text-base md:text-lg text-gray-300 mb-8 sm:mb-12 relative z-30 leading-relaxed">
           We turn ambitious concepts into dependable digital realities—seamlessly, swiftly,
           <br className="hidden md:block" />
           and with craftsmanship woven into every step.
         </p>
 
-        {/* Custom FireButton */}
+        {/* Custom Button */}
         <button
           className="relative rounded-full flex items-center w-full max-w-[160px] sm:max-w-xs text-black mx-auto z-30"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
-          {/* Left gradient */}
+          {/* Left Gradient */}
           <div
             style={{ opacity: gradientOpacity.left }}
             className="absolute -left-2 h-[125%] w-1/2 bg-gradient-to-r from-[#00A8A8] to-transparent blur-sm rounded-full pointer-events-none duration-100"
@@ -71,7 +72,7 @@ export default function HeroSection() {
             className="absolute -left-2 h-[125%] w-2/5 bg-gradient-to-r from-[#00A8A8] to-transparent blur-sm rounded-full pointer-events-none duration-100"
           />
 
-          {/* Right gradient */}
+          {/* Right Gradient */}
           <div
             style={{ opacity: gradientOpacity.right }}
             className="absolute -right-2 h-[125%] w-1/2 bg-gradient-to-r from-transparent to-[#00A8A8] blur-sm rounded-full pointer-events-none duration-100"
@@ -81,6 +82,7 @@ export default function HeroSection() {
             className="absolute -right-2 h-[125%] w-2/5 bg-gradient-to-r from-transparent to-[#00A8A8] blur-sm rounded-full pointer-events-none duration-100"
           />
 
+          {/* Button Inner */}
           <div className="relative flex justify-center items-center border border-white/60 bg-[#d1d1d1] w-full py-1.5 sm:py-2 md:py-2.5 rounded-full overflow-hidden">
             <motion.div
               animate={{ left: `${cursorPosition.x - 102}px` }}
